@@ -1,0 +1,77 @@
+/* Colors
+	teal-light: #a4ded2;
+	teal-heavy: #4c9283;
+	brown-light: #dedea4;
+	brown-heavy: #95955d;
+	DARK brown for after timer is done: #4c4c2d;
+*/
+:root {
+  --primary: #000;
+  --background: #fff;
+}
+body {
+	background: var(--background);
+	padding: 0;
+	margin: 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: background-color 0.4s;
+}
+svg {
+	width: 80%;
+	height: 80%;
+	transform: rotate(180deg);
+}
+.text {
+	display: block;
+    position: fixed;
+    color: var(--primary);
+    font-family: monospace;
+    font-weight: bold;
+    background: var(--background);
+    z-index: 1000;
+    border: 2px solid var(--primary);
+    border-radius: 1000px;
+    padding: 10px;
+}
+.text:hover {
+	cursor: pointer;
+}
+.path {
+	/*
+	line: 72912;
+	line2: 71496;
+	*/
+	fill: none;
+	stroke: var(--primary);
+	stroke-miterlimit: 10;
+	stroke-width: 8px;
+	stroke-dasharray: 72912;
+	stroke-dashoffset: 72912;
+	animation: dash 120s linear alternate forwards;
+}
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 900;
+	background: rgba(0,0,0,0.8);
+}
+.visible {
+	display: block;
+}
+
+@keyframes dash {
+	from {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 72912;
+	}
+}
